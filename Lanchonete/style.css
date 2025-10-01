@@ -1,0 +1,74 @@
+.order-painel {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+.item-selection {
+    margin: 15px 0;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+.item:last-child {
+    border-bottom: none;
+}
+.item-name {
+    flex-grow: 1;
+}
+.item-quantity input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.total-section {
+    margin-top: 20px;
+}
+.total-section p {
+    margin: 10px 0;
+}
+/* 🛑 CORREÇÃO: Usar '#paid-amount' (como no HTML) */
+#paid-amount { 
+    width: 120px;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4;
+}
+.total-section button {
+display: block;
+width: 100%;
+padding: 10px; 
+background: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: background 0.3s;
+}
+.total-section button:hover {
+background: #45a049;
+}
+/* 🛑 CORREÇÃO: Usar '#change-due' (como no HTML) */
+#total, #change-due { 
+font-weight: bold;
+color: #333;
+}
+/* Adicionei esta regra para estilizar a mensagem de erro (já referenciada no JS) */
+.error { 
+    color: red !important;
+}
+

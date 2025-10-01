@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Simulador de Pedido em Lanchonete</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <div class="order-painel">
+        <h2>Simulador de Pedido</h2>
+        <div id="item-list" class="item-selection"></div>
+        <div class="total-section">
+            <p>Total: <span id="total">R$ 0.00</span></p>
+            <label>Valor Pago: <input type="number" id="paid-amount" step="0.01" min="0" placeholder="R$ 0.00"></label>
+            <button id="checkout-btn">Finalizar Pedido</button>
+            <p>Troco: <span id="change-due">R$ 0.00</span></p>
+        </div>
+    </div>
+    <script src='script.js'></script>
+</body>
+
+</html>
