@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Battle Simulador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>RPG Battle Simulador</h1>
+        <div class="battle-arena">
+            <div class="character-card player-card">
+                <h2 id="player-name">Herói</h2>
+                <div class="health-bar-container">
+            <div id="player-health-bar" class="health-bar"></div>
+        <span id="player-health-text" class="health-text">100/100 HP</span>
+                </div>
+                <img id="player-image" src="" alt="Player Character">
+                <div id="player-abilities" class="abilities-container">
+
+                </div>
+            </div>
+            <div class="vs-text">VS</div>
+            <div class="character-card monster-card">
+                <h2 id="monster-name">Monstro</h2>
+                <div class="health-bar-container">
+            <div id="monster-health-bar" class="health-bar"></div>
+        <span id="monster-health-text" class="health-text">100/100 HP</span>
+                </div>
+        <img id="monster-image" src="" alt="Monster">
+            </div>
+        </div>
+        <div class="combat-log-section">
+            <h2>Combat Log</h2>
+            <div id="combat-log" class="combat-log">
+
+            </div>
+        </div>
+        <div id="game-over-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="game-over-title"></h2>
+                <p id="game-over-message"></p>
+    <button id="restart-game-btn" class="action-button">Restart Game</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
