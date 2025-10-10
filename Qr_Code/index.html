@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Qr Code</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('QRCode carregado:', typeof QRCode);
+            if(typeof QRCode === 'function'){
+                console.log('QRCode está disponível');
+                window.qrcodeLoaded = true;
+            } else{
+                console.error('ERRO: A biblioteca QRCode não foi carregada corretamente!');
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Códigos de Barras e QR Codes</h1>
+        <div class="controls-panel section">
+            <h2>Dados e Tipo de Código</h2>
+            <div class="input-group">
+                <label for="code-data">Dados do Código:</label>
+                <input type="text" id="code-data" placeholder="Digite os dados aqui (ex: 123456789012)" value="123456789012">
+            </div>
+            <div class="tool-palete">
+                <button class="tool-button active" data-code-type="qrcode"><span class="tool-icon barcode-icon"></span>QR Code</button>
+            </div>
+            <div class="action-buttons-group">
+                <button id="generate-code-btn" class="action-button primary">Gerar Código</button>
+                <button id="save-code-btn" class="action-button secondary">Salva Imagem</button>
+                <button id="clear-canvas-btn" class="action-button secondary">Limpar Canvas</button>    
+            </div>
+        </div>
+        <div class="code-display-section section">
+            <h2>Visualização do Código</h2>
+            <canvas id="code-canvas"></canvas>
+            <p id="canvas-message" class="empty-message">Digite os dados e clique em "Gerar Código".</p>
+        </div>
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+                <button id="close-message-btn" class="action-button">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src='script.js'></script>
+</body>
+</html>

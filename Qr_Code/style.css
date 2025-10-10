@@ -1,0 +1,337 @@
+/*
+  ==============================================
+  Estilos Globais e Container Principal
+  ==============================================
+*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f8; /* Light blue-gray background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ajustado para centralizar no topo */
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/*
+  ==============================================
+  Tipografia e Títulos
+  ==============================================
+*/
+
+h1 {
+    color: #2c3e50; /* Dark blue */
+    margin-bottom: 25px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #34495e; /* Darker blue-gray */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #ddecc6;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+/*
+  ==============================================
+  Estilo de Seção
+  ==============================================
+*/
+
+.section {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+/*
+  ==============================================
+  Painel de Controles (Controles, Input, Botões de Ferramenta)
+  ==============================================
+*/
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input[type="text"] {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.tool-palette, .action-buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.tool-button {
+    background-color: #6c757d; /* Gray for tool buttons */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+}
+
+.tool-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tool-button.active {
+    background-color: #007bff; /* Blue when active */
+    border: 2px solid #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tool-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Tool Icon Colors (simple visual cues) */
+.barcode-icon { background-color: #34495e; } /* Dark blue-gray */
+.qrcode-icon { background-color: #2ecc71; } /* Green */
+
+/*
+  ==============================================
+  Seção de Exibição do Código (QR/Canvas)
+  ==============================================
+*/
+
+.code-display-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px; /* Altura mínima para garantir espaço visual */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#code-canvas {
+    /* Estilo para o canvas principal */
+    border: 4px solid #34495e; /* Dark blue-gray border */
+    background-color: #ffffff; /* White background for the code */
+    display: none; /* Inicialmente escondido */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    max-width: 100%;
+    margin: 20px auto; /* Centraliza o canvas com margem superior e inferior */
+    
+    /* Garante que o canvas tenha dimensões explícitas */
+    width: 300px;
+    height: 300px;
+    
+    /* Força o dimensionamento correto */
+    object-fit: contain; 
+    
+    /* Garante que o canvas seja renderizado corretamente */
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Mensagem de Estado Vazio */
+.empty-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    width: 80%;
+}
+
+/*
+  ==============================================
+  Botões de Ação (Geral e Variações)
+  ==============================================
+*/
+
+.action-button {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.primary {
+    background-color: #28a745; /* Green for primary actions */
+    color: white;
+}
+
+.action-button.primary:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.25);
+}
+
+.action-button.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.action-button.secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(108, 117, 125, 0.25);
+}
+
+.action-button:disabled {
+    background-color: #a0a0a0;
+    color: #333;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/*
+  ==============================================
+  Estilo do Modal (Popup)
+  ==============================================
+*/
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+}
+
+.modal-content p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.modal-content .action-button {
+    background-color: #007bff;
+    padding: 8px 20px;
+    font-size: 1em;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+/*
+  ==============================================
+  Ajustes Responsivos (Mobile)
+  ==============================================
+*/
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        width: 95%;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .tool-palette, .action-buttons-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tool-button, .action-button {
+        width: 100%;
+        max-width: 250px; /* Limit width even when stacked */
+    }
+
+    .input-group input[type="text"] {
+        width: calc(100% - 20px); /* Adjust for padding on small screens */
+    }
+
+    .modal-content {
+        padding: 20px;
+        width: 90%;
+    }
+}
