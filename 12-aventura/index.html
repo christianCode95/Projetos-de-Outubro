@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura em Texto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Aventura na Floresta Sombria</h1>
+        <div class="story-area section">
+            <p id="story-text">Carregando história...</p>
+        </div>
+        <div class="choices-area section" id="choices-area">
+            <!-- Botões de escolha serão carregados aqui -->
+        </div>
+        <div class="inventory-area section">
+            <h2>Inventário</h2>
+            <ul id="inventory-list">
+                <p id="empty-inventory-message" class="empty-message">
+                    Seu inventário está vazio.</p> <!-- Itens do inventário serão carregados aqui -->
+            </ul>
+        </div>
+        <div class="controls-area">
+            <button id="restart-game-btn" class="action-button secondary">
+                Reiniciar Jogo</button>
+            <button id="save-game-btn" class="action-button primary">
+                Salvar Jogo</button>
+            <button id="load-game-btn" class="action-button primary">
+                Carregar Jogo</button>
+        </div>
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+                <button id="close-message-btn" class="action-button">
+                    OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
