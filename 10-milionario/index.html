@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Quer Ser um Milionário?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Quem Quer Ser um Milionário?</h1>
+        <div class="game-info">
+            <p>Nível: <span id="current-level">1</span></p>
+            <p>Dinheiro: <span id="current-money">R$ 0</span></p>
+        </div>
+        <div class="question-area">
+            <p id="question-text">Clique em "Iniciar Jogo" para começar!</p>
+        </div>
+        <div class="options-area" id="options-area">
+            <button class="option-btn" data-option="A">Opção A</button>
+            <button class="option-btn" data-option="B">Opção B</button>
+            <button class="option-btn" data-option="C">Opção C</button>
+            <button class="option-btn" data-option="D">Opção D</button>
+        </div>
+        <div class="controls">
+<button id="start-game-btn" 
+class="action-button primary">Iniciar Jogo</button>
+        </div>
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+                <button id="close-message-btn" 
+                class="action-button">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

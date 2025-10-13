@@ -1,0 +1,254 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1a2a3a; /* Dark blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #f0f8ff; /* Light text color */
+}
+
+.game-container {
+    background-color: #2c3e50; /* Darker blue for container */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 35px;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    border: 2px solid #34495e;
+}
+
+h1 {
+    color: #ffc107; /* Gold color for title */
+    margin-bottom: 25px;
+    font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #add8e6; /* Light blue for info */
+}
+
+.question-area {
+    background-color: #34495e; /* Medium blue for question background */
+    border-radius: 10px;
+    padding: 25px;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#question-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f0f8ff;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.options-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.option-btn {
+    background-color: #4a6982; /* Slightly lighter blue for options */
+    color: #f0f8ff;
+    border: 2px solid #5d809e;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, 
+    transform 0.1s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.option-btn:hover:not(:disabled) {
+    background-color: #5d809e;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.option-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.option-btn:disabled {
+    background-color: #6c757d; /* Gray out disabled buttons */
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Feedback for answers */
+.option-btn.correct {
+    background-color: #28a745; /* Green for correct */
+    border-color: #218838;
+    animation: pulse-correct 0.8s forwards; /* Animation for correct answer */
+}
+
+.option-btn.incorrect {
+    background-color: #dc3545; /* Red for incorrect */
+    border-color: #c82333;
+    animation: shake-incorrect 0.5s forwards; /* Animation for incorrect answer */
+}
+
+@keyframes pulse-correct {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(40, 167, 69, 0.7); }
+    50% { transform: scale(1.05); 
+        box-shadow: 0 0 20px rgba(40, 167, 69, 1); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(40, 167, 69, 0.7); }
+}
+@keyframes shake-incorrect {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* Controls */
+.controls {
+    width: 100%;
+}
+
+.action-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, 
+    transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    width: 100%;
+    max-width: 300px;
+}
+
+.action-button.primary {
+    background-color: #ffc107; /* Gold for primary action */
+    color: #333;
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+.action-button.primary:hover {
+    background-color: #e0a800;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.5);
+}
+
+.action-button.primary:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(255, 193, 7, 0.3);
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Darker overlay */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #34495e;
+    margin: auto;
+    padding: 40px;
+    border: 2px solid #ffc107;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    position: relative;
+    text-align: center;
+    color: #f0f8ff;
+}
+
+.modal-content p {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.modal-content .action-button {
+    background-color: #ffc107;
+    color: #333;
+    padding: 10px 25px;
+    font-size: 1.1em;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 20px;
+        width: 95%;
+        gap: 15px;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    .game-info {
+        font-size: 1em;
+    }
+    #question-text {
+        font-size: 1.2em;
+        min-height: 60px;
+    }
+    .options-area {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 10px;
+    }
+    .option-btn {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+    .action-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    .modal-content {
+        padding: 25px;
+        width: 90%;
+    }
+    .modal-content p {
+        font-size: 1.2em;
+    }
+}
