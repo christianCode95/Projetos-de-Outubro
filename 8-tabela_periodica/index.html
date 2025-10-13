@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Periódica Interativa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tabela Periódica Interativa</h1>
+        <div id="periodic-table-grid" class="periodic-table-grid">
+            <!-- Os elementos da tabela periódica serão gerados dinamicamente aqui pelo JavaScript -->
+        </div>
+        <div class="category-legend">
+            <h2>Legenda de Categorias</h2>
+            <div id="legend-container" class="legend-container">
+                <!-- A legenda será gerada dinamicamente aqui pelo JavaScript -->
+            </div>
+        </div>
+        <!-- Element Detail Modal -->
+        <div id="element-detail-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2 id="modal-element-name" class="modal-title"></h2>
+                <div class="modal-body">
+ <p><strong>Símbolo:</strong> <span id="modal-element-symbol"></span></p>
+<p><strong>Número Atômico:</strong> <span id="modal-element-atomic-number"></span></p>
+<p><strong>Massa Atômica:</strong> <span id="modal-element-atomic-mass"></span></p>
+<p><strong>Categoria:</strong> <span id="modal-element-category"></span></p>
+<p><strong>Configuração Eletrônica:</strong> <span id="modal-element-electron-configuration"></span></p>
+<p><strong>Ponto de Fusão:</strong> <span id="modal-element-melting-point"></span></p>
+<p><strong>Ponto de Ebulição:</strong> <span id="modal-element-boiling-point"></span></p>
+<p><strong>Densidade:</strong> <span id="modal-element-density"></span></p>
+<p><strong>Descoberto por:</strong> <span id="modal-element-discovered-by"></span></p>
+<p><strong>Ano de Descoberta:</strong> <span id="modal-element-discovery-year"></span></p>
+<p><strong>Descrição:</strong> <span id="modal-element-description"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
