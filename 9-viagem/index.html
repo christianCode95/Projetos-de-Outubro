@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejador de Viagens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meu Planejador de Viagens</h1>
+        <div class="section destination-input-section">
+            <h2>Adicionar Destino</h2>
+            <div class="input-group">
+ <input type="text" id="destination-name-input" 
+ placeholder="Nome do Destino (ex: Paris, Praia do Forte)">
+<button id="add-destination-btn" 
+class="action-button primary">Adicionar Destino</button>
+            </div>
+        </div>
+        <div class="section map-section">
+            <h2>Mapa da Viagem</h2>
+            <div class="map-container">
+<img id="base-map-image" src="./1.jpg" alt="Mapa Base">
+                <div id="map-hotspots" class="map-hotspots">
+                    <!-- Hotspots (destinos) serão adicionados aqui via JS -->
+                </div>
+            </div>
+<p class="map-hint">Clique nos pontos do mapa para ver os 
+    detalhes do destino.</p>
+        </div>
+        <div class="section checklist-section">
+            <h2>Checklists dos Destinos</h2>
+            <div id="destinations-list" class="destinations-list">
+ <p id="no-destinations-message" 
+ class="empty-message">
+ Nenhum destino adicionado ainda. Adicione um acima!</p>
+                <!-- Destinos e suas checklists serão carregados aqui via JS -->
+            </div>
+        </div>
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+<button id="close-message-btn" class="action-button">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
