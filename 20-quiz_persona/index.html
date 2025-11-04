@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Personalidade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="start-screen" class="quiz-screen active">
+    <h1>Descubra Sua Personalidade!</h1>
+    <p>Responda a algumas perguntas e veja qual
+         personagem combina mais com você.</p>
+ <button id="start-quiz-btn" class="quiz-button primary">
+    Iniciar Quiz</button>
+        </div>
+        <div id="quiz-screen" class="quiz-screen">
+            <h2 id="question-text"></h2>
+            <div id="options-container" class="options-container">
+                <!-- Opções de resposta serão geradas dinamicamente aqui -->
+            </div>
+ <button id="next-question-btn" class="quiz-button secondary" 
+ disabled>Próxima Pergunta</button>
+            <button id="submit-quiz-btn" class="quiz-button primary" 
+            style="display: none;">Ver Resultado</button>
+        </div>
+
+        <!-- Modal de Resultado -->
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="result-title"></h2>
+                <div id="result-image-container">
+                    <img id="result-image" src="" alt="Resultado do Quiz">
+                </div>
+                <p id="result-description"></p>
+     <button id="restart-quiz-btn" class="quiz-button primary">
+        Jogar Novamente</button>
+            </div>
+        </div>
+        <!-- Mensagem genérica (para erros/avisos) -->
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+                <button id="close-message-btn" class="quiz-button">
+                    OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

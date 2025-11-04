@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- JsBarcode library for barcode generation -->
+    <script src=
+"https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js">
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Estoque</h1>
+        <div class="section add-product-section">
+            <h2>Adicionar Novo Produto</h2>
+            <div class="input-group">
+                <label for="product-name">Nome do Produto:</label>
+                <input type="text" id="product-name" 
+                placeholder="Ex: Camiseta Azul">
+            </div>
+            <div class="input-group">
+                <label for="product-quantity">Quantidade Inicial:</label>
+                <input type="number" id="product-quantity" value="1" min="1">
+            </div>
+            <button id="add-product-btn" class="action-button">
+                Adicionar Produto</button>
+        </div>
+        <div class="section barcode-display-section">
+            <h2>Código de Barras Gerado</h2>
+            <p id="barcode-product-name">Nenhum produto selecionado</p>
+            <svg id="barcode-svg"></svg>
+            <button id="copy-barcode-btn" class="action-button" 
+            disabled>Copiar Código</button>
+            <p class="hint">Use este código para operações de estoque.</p>
+        </div>
+        <div class="section stock-operations-section">
+            <h2>Operações de Estoque</h2>
+            <div class="input-group">
+                <label for="barcode-input">Ler Código de Barras:</label>
+                <input type="text" id="barcode-input" 
+                placeholder="Digite ou cole o código">
+            </div>
+            <div class="input-group">
+                <label for="operation-quantity">Quantidade:</label>
+                <input type="number" id="operation-quantity" 
+                value="1" min="1">
+            </div>
+            <div class="operation-buttons">
+                <button id="entry-btn" class="action-button entry-button">
+                    Entrada</button>
+                <button id="exit-btn" class="action-button exit-button">
+                    Saída</button>
+            </div>
+        </div>
+        <div class="section inventory-list-section">
+            <h2>Estoque Atual</h2>
+            <ul id="inventory-list">
+                <li class="empty-inventory-message">
+                    Nenhum produto no estoque.</li>
+            </ul>
+        </div>
+        <div id="message-box" class="message-box">
+            <p id="message-text"></p>
+            <button id="close-message-btn" class="action-button">
+                OK</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

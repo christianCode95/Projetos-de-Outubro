@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini CMS Local</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meu Blog Local</h1>
+        <div class="section create-post-section">
+            <h2>Criar Nova Publicação</h2>
+            <div class="input-group">
+                <label for="post-title">Título:</label>
+<input type="text" id="post-title" placeholder="Título da sua publicação">
+            </div>
+            <div class="input-group">
+                <label for="post-content">Conteúdo:</label>
+<textarea id="post-content" 
+placeholder="Escreva o conteúdo da sua publicação aqui..."></textarea>
+            </div>
+            <div class="input-group">
+                <label for="post-category">Categoria:</label>
+                <select id="post-category">
+     <option value="">Selecione uma categoria</option> <!-- Categories will be loaded here by JS -->
+                </select>
+            </div>
+<button id="publish-post-btn" class="action-button">Publicar</button>
+        </div>
+        <div class="section category-management-section">
+            <h2>Gerenciar Categorias</h2>
+            <div class="input-group">
+                <label for="new-category-name">Nova Categoria:</label>
+<input type="text" id="new-category-name" placeholder="Nome da categoria">
+            </div>
+<button id="add-category-btn" 
+class="action-button">Adicionar Categoria</button>
+            <ul id="categories-list">
+<li class="empty-message">Nenhuma categoria adicionada.</li>
+            </ul>
+        </div>
+        <div class="section posts-display-section">
+            <h2>Publicações</h2>
+            <div class="filter-group">
+    <label for="filter-category">Filtrar por Categoria:</label>
+                <select id="filter-category">
+                    <option value="all">Todas as Categorias</option>
+                    <!-- Categories will be loaded here by JS -->
+                </select>
+            </div>
+            <div id="posts-list">
+<p class="empty-message">Nenhuma publicação ainda. Crie uma!</p>
+            </div>
+        </div>
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+<button id="close-message-btn" class="action-button">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

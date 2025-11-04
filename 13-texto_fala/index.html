@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de Texto com Voz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Leitor de Texto com Voz</h1>
+        <div class="text-input-section section">
+            <h2>Digite ou Cole seu Texto</h2>
+            <textarea id="text-to-speak" 
+            placeholder="Digite o texto que deseja ouvir aqui...">
+        </textarea>
+        </div>
+        <div class="voice-controls-section section">
+            <h2>Controles de Voz</h2>
+            <div class="control-group">
+                <label for="voice-select">Voz:</label>
+                <select id="voice-select"></select>
+            </div>
+            <div class="control-group slider-group">
+                <label for="volume-slider">Volume:</label>
+                <input type="range" id="volume-slider" min="0" 
+                max="1" value="1" step="0.1">
+                <span id="volume-value">100%</span>
+            </div>
+            <div class="control-group slider-group">
+                <label for="pitch-slider">Tom (Pitch):</label>
+                <input type="range" id="pitch-slider" min="0.1" 
+                max="2" value="1" step="0.1">
+                <span id="pitch-value">1.0</span>
+            </div>
+            <div class="control-group slider-group">
+                <label for="rate-slider">Velocidade (Rate):</label>
+                <input type="range" id="rate-slider" min="0.1" 
+                max="10" value="1" step="0.1">
+                <span id="rate-value">1.0</span>
+            </div>
+        </div>
+        <div class="playback-controls-section section">
+            <h2>Reprodução</h2>
+            <div class="playback-buttons">
+                <button id="speak-btn" class="action-button primary">
+                    Falar</button>
+                <button id="pause-btn" class="action-button secondary">
+                    Pausar</button>
+                <button id="resume-btn" class="action-button secondary">
+                    Retomar</button>
+                <button id="stop-btn" class="action-button danger">
+                    Parar</button>
+            </div>
+        </div>
+        <div id="message-box" class="modal">
+            <div class="modal-content">
+                <p id="message-text"></p>
+                <button id="close-message-btn" class="action-button">
+                    OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Detetive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="start-screen" class="game-screen active">
+            <h1>O Caso do Diamante Desaparecido</h1>
+            <p>Um valioso diamante foi roubado da mansão do Sr. 
+     Montgomery! Sua missão, detetive, é descobrir quem é o ladrão.</p>
+<button id="start-game-btn" class="game-button">Iniciar Investigação</button>
+        </div>
+        <div id="game-screen" class="game-screen">
+            <div class="case-briefing">
+                <h2>Resumo do Caso</h2>
+                <p id="case-description">O diamante "Estrela da Noite" 
+    foi roubado. Você tem 3 suspeitos e várias pistas para analisar.</p>
+            </div>
+            <div class="game-sections">
+                <div class="section suspects-section">
+                    <h2>Suspeitos</h2>
+                    <div id="suspects-list" class="list-container">
+                        <!-- Suspeitos serão carregados aqui -->
+                    </div>
+                </div>
+                <div class="section clues-section">
+                    <h2>Pistas Coletadas</h2>
+                    <ul id="clues-list" class="list-container">
+  <li class="empty-message">Nenhuma pista coletada ainda.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section deduction-section">
+                <h2>Fazer Dedução</h2>
+                <select id="deduction-suspect-select">
+                    <option value="">Selecione o Ladrão</option>
+                </select>
+<button id="submit-deduction-btn" class="game-button">DEDUZIR!</button>
+            </div>
+        </div>
+        <div id="interrogation-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3 id="interrogation-suspect-name"></h3>
+                <p>O que você gostaria de perguntar?</p>
+                <div id="question-list">
+                    <!-- Perguntas serão carregadas aqui -->
+                </div>
+            </div>
+        </div>
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="result-title"></h2>
+                <p id="result-message"></p>
+<button id="play-again-btn" class="game-button">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+    <!-- Nova caixa de mensagem personalizada -->
+    <div id="custom-message-box" class="modal">
+        <div class="modal-content">
+            <p id="custom-message-text"></p>
+<button id="custom-message-ok-btn" class="game-button">OK</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

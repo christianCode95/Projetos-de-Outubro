@@ -1,0 +1,316 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1a1a2e; /* Fundo azul escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ecf0f1; /* Texto claro */
+}
+.game-container {
+    background-color: #2c3e50; /* Azul escuro mais claro */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    padding: 35px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    border: 1px solid #34495e;
+}
+h1 {
+    color: #f1c40f; /* Amarelo vibrante */
+    margin-bottom: 25px;
+    font-size: 2.8em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+h2 {
+    color: #3498db; /* Azul para títulos de seção */
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+}
+h3 {
+    color: #f39c12; /* Laranja para títulos de modal */
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+.game-screen {
+    display: none; /* Hidden by default */
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.game-screen.active {
+    display: flex; /* Show active screen */
+}
+.game-button {
+    background-color: #2ecc71; /* Verde para botões de ação */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.1s 
+    ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.game-button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.game-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.case-briefing {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+.case-briefing p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #bdc3c7;
+}
+.game-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+.section {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    flex: 1; /* Allows sections to grow */
+    min-width: 300px; /* Minimum width for sections */
+    text-align: left;
+}
+.list-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 250px; /* Max height for scrollable lists */
+    overflow-y: auto;
+    border: 1px solid #5d7e9b;
+    border-radius: 8px;
+    background-color: #2b3b4d;
+}
+.list-container::-webkit-scrollbar {
+    width: 8px;
+}
+.list-container::-webkit-scrollbar-track {
+    background: #34495e;
+    border-radius: 10px;
+}
+.list-container::-webkit-scrollbar-thumb {
+    background: #8e44ad;
+    border-radius: 10px;
+}
+.list-container::-webkit-scrollbar-thumb:hover {
+    background: #9b59b6;
+}
+.list-container li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #3f5870;
+    transition: background-color 0.2s ease;
+    font-size: 1em;
+    color: #ecf0f1;
+}
+.list-container li:last-child {
+    border-bottom: none;
+}
+.list-container li.suspect-item {
+    cursor: pointer;
+    font-weight: bold;
+    color: #f1c40f;
+}
+.list-container li.suspect-item:hover {
+    background-color: #3f5870;
+}
+.list-container li.clue-item {
+    color: #2ecc71; /* Green for collected clues */
+}
+.list-container .empty-message {
+    font-style: italic;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px;
+}/* Deduction Section */
+.deduction-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+#deduction-suspect-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #5d7e9b;
+    background-color: #2b3b4d;
+    color: #ecf0f1;
+    font-size: 1em;
+    -webkit-appearance: none; /* Remove default arrow */
+    -moz-appearance: none;
+    appearance: none;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+}
+#deduction-suspect-select option {
+    background-color: #2b3b4d;
+    color: #ecf0f1;
+}/* Modals */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #2c3e50;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #3498db;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+    text-align: center;
+}
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #fff;
+    text-decoration: none;
+}
+#question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.question-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+.question-button:hover {
+    background-color: #2980b9;
+}
+.question-button:disabled {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+}
+#result-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+#result-message {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}/* Specific result colors */
+#result-modal.win #result-title { color: #2ecc71; } /* Green for win */
+#result-modal.lose #result-title { color: #e74c3c; } /* Red for lose */
+#custom-message-box .modal-content {
+    border: 1px solid #f1c40f; /* Borda amarela para destaque */
+    background-color: #2b3b4d; /* Fundo ligeiramente diferente */
+    max-width: 400px;
+}
+#custom-message-box p {
+    color: #ecf0f1;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+#custom-message-ok-btn {
+    background-color: #f39c12; /* Botão OK laranja */
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#custom-message-ok-btn:hover {
+    background-color: #e67e22;
+}/* Responsividade */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 25px;
+        width: 95%;
+        gap: 15px;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+    .game-sections {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .section {
+        min-width: unset; /* Remove min-width on small screens */
+        width: 100%;
+    }
+    .game-button {
+        padding: 10px 18px;
+        font-size: 1em;
+    }
+    #deduction-suspect-select {
+        max-width: 100%;
+    }
+    .modal-content {
+        padding: 20px;
+        width: 90%;
+    }
+    #result-title {
+        font-size: 2em;
+    }
+    #result-message {
+        font-size: 1em;
+    }
+}
